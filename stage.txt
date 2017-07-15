@@ -1,1 +1,2 @@
 como va el estado stage de git
+\nañado nueva linea
