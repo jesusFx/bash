@@ -8,6 +8,7 @@ Sistema operativo:
 	Linux Mint v.18.2 "Sonya" MATE 64 bits
 	
 Características del ordenador:
+
 	Modelo: HP Pavilion 15-n251ss
 	Disco duro: 1TB
 	Memoria RAM: 8GB (2 slots de 4GB)
