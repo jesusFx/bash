@@ -1,4 +1,4 @@
-# bash
+# Bash
 Un repositorio que incluye scripts de bash que realizan tareas y operaciones específicas en Linux. 
 
 
@@ -14,5 +14,6 @@ Características del ordenador:
 	Disco duro: 1TB
 	Memoria RAM: 8GB (2 slots de 4GB)
 	Procesador: AMD Radeon HD 8330 (gráfica integrada)
+	Teclado: Synaptics Touchpad
 
 NOTA: todo fallo que pueda provocar estos scripts en otros sistemas operativos u ordenadores con otros procesadores no queda contemplado en los scripts. Usar bajo precaución. Recomendable usar máquina virtual o contenedor para probar los scripts.
