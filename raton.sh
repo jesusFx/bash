@@ -14,7 +14,7 @@ do
 		gsettings set 'org.mate.peripherals-touchpad' tap-to-click true
 		if [ $seccioncritica != 'touch1' ]
 		then	
-			notify-send --urgency=low --expire-time=2000 "Synaptics Touchpad activado"
+			notify-send --urgency=low --expire-time=2000 "Synaptics Touchpad activado" -i /home/jesus/Imágenes/etouchpad.png
 			seccioncritica=touch1
 		fi
 	elif [ "$mousecount" -gt "1" ]
@@ -22,7 +22,7 @@ do
 		xinput --disable $idsynaptics
 		if [ $seccioncritica != 'touch2' ]
 		then
-			notify-send --urgency=normal --expire-time=2000 "Synaptics Touchpad desactivado"
+			notify-send --urgency=normal --expire-time=2000 "Synaptics Touchpad desactivado" -i /home/jesus/Imágenes/dtouchpad.png
 			seccioncritica=touch2
 		fi
 	fi
