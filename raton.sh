@@ -14,7 +14,8 @@ do
 		gsettings set 'org.mate.peripherals-touchpad' tap-to-click true
 		if [ $seccioncritica != 'touch1' ]
 		then	
-			notify-send --urgency=low --expire-time=2000 "Synaptics Touchpad activado" -i /home/jesus/Imágenes/etouchpad.png
+			killall -9 mate-notification-daemon 2> /dev/null
+			notify-send --urgency=low --expire-time=2000 "Notificación del controlador Synaptics TouchPad" "Synaptics Touchpad activado" -i /home/jesus/Imágenes/etouchpad.png
 			seccioncritica=touch1
 		fi
 	elif [ "$mousecount" -gt "1" ]
@@ -22,7 +23,8 @@ do
 		xinput --disable $idsynaptics
 		if [ $seccioncritica != 'touch2' ]
 		then
-			notify-send --urgency=normal --expire-time=2000 "Synaptics Touchpad desactivado" -i /home/jesus/Imágenes/dtouchpad.png
+			killall -9 mate-notification-daemon 2> /dev/null
+			notify-send --urgency=normal --expire-time=8000 "Notificación del controlador Synaptics TouchPad" "Se ha inhabilitado el TouchPad porque el controlador libre del Touchpad de Synaptics ha detectado otro dispositivo puntero conectado al ordenador" -i /home/jesus/Imágenes/dtouchpad.png
 			seccioncritica=touch2
 		fi
 	fi
