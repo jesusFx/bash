@@ -16,18 +16,23 @@ done
 
 sudo apt-get update
 
-numUpdates=$(sudo apt-get --assume-no upgrade | grep -E "^\ \ " | wc -w)
+sudo apt-get --assume-yes autoremove
 
-if [ $numUpdates -eq 0 ]
+numUpdates=$(sudo apt-get --assume-no upgrade | grep -E "^\ \ " | wc -w)
+numUpdates2=$(sudo apt-get --assume-no dist-upgrade | grep -E "^\ \ " | wc -w)
+
+let numtotal=numUpdates+numUpdates2
+
+if [ $numtotal -eq 0 ]
 then
 	notify-send --urgency=low --expire-time=60000 "No hay ninguna actualización disponible"
-elif [ $numUpdates -lt 4 ] && [ $numUpdates -gt 0 ]
+elif [ $numtotal -lt 4 ] && [ $numtotal -gt 0 ]
 then
-	notify-send --urgency=low --expire-time=60000 "Se han detectado $numUpdates actualizaciones"
-elif [ $numUpdates -lt 10 ] && [ $numUpdates -gt 3 ]
+	notify-send --urgency=low --expire-time=60000 "Se han detectado $numtotal actualizaciones"
+elif [ $numtotal -lt 10 ] && [ $numtotal -gt 3 ]
 then
-	notify-send --urgency=normal --expire-time=60000 "Se han detectado $numUpdates actualizaciones"
-elif [ $numUpdates -lt 18 ] && [ $numUpdates -gt 9 ]
+	notify-send --urgency=normal --expire-time=60000 "Se han detectado $numtotal actualizaciones"
+elif [ $numtotal -lt 18 ] && [ $numtotal -gt 9 ]
 then
-	notify-send --urgency=critical --expire-time=60000 "Se han detectado $numUpdates actualizaciones"
+	notify-send --urgency=critical --expire-time=60000 "Se han detectado $numtotal actualizaciones"
 fi
