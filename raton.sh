@@ -2,6 +2,18 @@
 
 #Detecta cuantos dispositivos de tipo mouse hay conectados. Si es 1 solo esta el touchpad y lo activa y permite la pulsacion de raton por touchpad, si hay mas de 1 entonces lo desactiva
 
+estado=999
+
+comando=`ps -e | grep "checkUpdates.sh"`
+if [ $comando != '' ]
+then
+	while [ $estado -gt 0 ];
+	do
+		ps -e | grep "checkUpdates.sh"
+		estado=$?
+	done
+fi
+
 seccioncritica=default
 idsynaptics=`xinput list | grep SynPS/2 | grep -oE "[=]([0-9]){1,2}[^\)]" | grep -oE "([0-9]){1,2}"`
 

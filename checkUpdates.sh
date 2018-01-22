@@ -3,39 +3,35 @@
 sleep 9
 
 error=-1
-it=0
-valor=0
 
 while [ $error -ne 0 ]; do
-	while [ $it -ne 4];
-	do
-		ping google.es -c 1 2> /dev/null
-		if [ $? -eq 0]
-		then
-			valor=$((valor+1))
-		fi
-		error=$?
-		if [ $valor -lt 3 ] && [ $it -eq 3 ]
-		then
-			killall -15 mate-notification-daemon 2> /dev/null
-			notify-send --urgency=critical --expire-time=60000 "No hay conexión a Internet o es muy inestable. Reintentando..."
-			sleep 15
-			it=0
-		else
-			it=$((it+1))
-		fi
-	done
+
+	ping google.es -c 4 2> /dev/null
+
+	error=$?
+
+	echo $error
+	if [ $error -gt 0 ] && [ $error -lt 3 ]
+	then
+		killall -15 mate-notification-daemon 2> /dev/null
+		notify-send --urgency=critical --expire-time=60000 "No hay conexión a Internet o es muy inestable. Reintentando..."
+		sleep 3
+	elif [ $error -eq 0 ]
+	then
+		error=0
+	fi
+
 done
 killall -15 mate-notification-daemon 2> /dev/null
 
 notify-send --urgency=low --expire-time=60000 "Buscando actualizaciones..."
 
-sudo apt-get update
+apt-get update
 
-sudo apt-get --assume-yes autoremove
+apt-get --assume-yes autoremove
 
-numUpdates=$(sudo apt-get --assume-no upgrade | grep -E "^\ \ " | wc -w)
-numUpdates2=$(sudo apt-get --assume-no dist-upgrade | grep -E "^\ \ " | wc -w)
+numUpdates=$(apt-get --assume-no upgrade | grep -E "^\ \ " | wc -w)
+numUpdates2=$(apt-get --assume-no dist-upgrade | grep -E "^\ \ " | wc -w)
 
 estado=-1
 
