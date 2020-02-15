@@ -1,8 +1,10 @@
 #! /bin/bash
+
 #author:			jesusFx
+#date:				15/02/2020
 #bash_version:		4.4.20
 #script_version:	0.0.1
-#Description:		Script to download latest staging version of Widevine component (neccesary component to play DRM content in 
+#description:		Script to download latest staging version of Widevine component (neccesary component to play DRM content in 
 #					different browsers to Chrome)
 
 STAGING_WIDEVINE_URL_ROOT="http://archive.virtapi.org/packages/c/chromium-widevine/"

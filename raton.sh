@@ -1,6 +1,10 @@
 #! /bin/bash
 
-#Detecta cuantos dispositivos de tipo mouse hay conectados. Si es 1 solo esta el touchpad y lo activa y permite la pulsacion de raton por touchpad, si hay mas de 1 entonces lo desactiva
+#author:			jesusFx
+#date:				22/01/2018
+#notes:				Actualmente descontinuado. Última vez probado en el sistema Linux Mint v.18.2 "Sonya" MATE 64 bits
+#description:		Detecta cuantos dispositivos de tipo mouse hay conectados. Si es 1 solo está el touchpad y lo activa 
+#					y permite la pulsación de ratón por touchpad, si hay más de 1 entonces lo desactiva
 
 estado=999
 
